@@ -41,6 +41,12 @@ app.get('/todo', (req, res, fields) => {
         })
 })
 
+app.delete('/todo/:id', (req, res) => {
+    var sql = `DELETE FROM todo WHERE id = ${req.params.id}`;
+	con.query(sql)
+	res.end()
+})
+
 app.listen(3000, function(err){
     console.log("Server started");
 })
